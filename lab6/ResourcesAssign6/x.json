@@ -1,0 +1,6 @@
+{"data":[
+{"post_id":1,"thread_id":1,"uid":"p1","timestamp":"2018-08-23 15:16:23.92803","text":"Hey p2 how are you?."},
+{"post_id":2,"thread_id":1,"uid":"p2","timestamp":"2018-08-23 15:16:23.92803","text":"Hey p1 I am good."},
+{"post_id":3,"thread_id":1,"uid":"p1","timestamp":"2018-08-23 15:16:23.92803","text":"Lets meet up this weekend."},
+{"post_id":4,"thread_id":1,"uid":"p2","timestamp":"2018-08-23 15:16:23.92803","text":"Sure lets do that."}],
+"status":true}

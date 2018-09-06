@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+
+<style>
+
+table,th,td {
+
+  border : 1px solid black;
+
+  border-collapse: collapse;
+
+}
+
+th,td {
+
+  padding: 5px;
+
+}
+
+</style>
+
+<body>
+
+
+
+<h2>The XMLHttpRequest Object</h2>
+
+
+
+<form action=""> 
+
+<select name="customers" onchange="showCustomer(this.value)">
+
+<option value="">Select a customer:</option>
+<option value="p1">Person1</option>
+<option value="p2">Person2</option>
+<option value="p3">Person3</option>
+<option value="p4">Person4</option>
+<option value="p5">Person5</option>
+<option value="p6">Person6</option>
+<option value="p7">Person7</option>
+<option value="p8">Person8</option>
+
+</select>
+
+</form>
+
+<br>
+
+<div id="txtHint">Customer info will be listed here...</div>
+
+
+
+<script>
+
+function showCustomer(str) {
+
+  var xhttp;    
+
+  if (str == "") {
+
+    document.getElementById("txtHint").innerHTML = "";
+
+    return;
+
+  }
+
+  xhttp = new XMLHttpRequest();
+
+  xhttp.onreadystatechange = function() {
+
+    if (this.readyState == 4 && this.status == 200) {
+      //document.getElementById("dataDiv").innerHTML=xmlhttp.responseText;	
+     // document.getElementById("txtHint").innerHTML = this.responseText;
+      var obj = JSON.parse(this.responseText);
+      //document.getElementById("new").innerHTML = obj.data;
+      tabledata = "<table border='1'>"
+          for (i in obj.data) {
+              tabledata += "<tr><td>" + obj.data[i].post_id + "</td>" 
+              
+              +"<td>" + obj.data[i].thread_id + "</td>"
+              +"<td>" + obj.data[i].uid + "</td>"
+              +"<td>" + obj.data[i].timestamp + "</td>"
+              +"<td>" + obj.data[i].text + "</td></tr>";
+              
+              
+              
+              
+              
+              
+          }
+          tabledata += "</table>" 
+          document.getElementById("txtHint").innerHTML = tabledata;
+      
+    	     
+     
+     
+     
+     
+    }
+
+  };
+
+  xhttp.open("GET", "ConversationDetail?other_id="+str, true);
+
+  xhttp.send();
+
+}
+
+</script>
+
+</body>
+
+</html>  
+
